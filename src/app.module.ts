@@ -13,13 +13,15 @@ import { JoiValidationSchema } from './config/joi.validation';
   imports: [
     ConfigModule.forRoot({
       load: [EnvConfigutation],
-      validationSchema: JoiValidationSchema
+      validationSchema: JoiValidationSchema,
     }),
+
+    // Configuración para conectarse con MongoDB
+    MongooseModule.forRoot(process.env.MONGODB),
 
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
     }),
-    MongooseModule.forRoot(process.env.MONGODB),
 
     PokemonModule,
 

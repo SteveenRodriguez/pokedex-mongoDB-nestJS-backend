@@ -13,7 +13,7 @@ import {
 import { PokemonService } from './pokemon.service';
 import { CreatePokemonDto } from './dto/create-pokemon.dto';
 import { UpdatePokemonDto } from './dto/update-pokemon.dto';
-import { isMongoId } from 'class-validator';
+// import { isMongoId } from 'class-validator';
 import { ParseMongoIdPipe } from 'src/common/pipes/parse-mongo-id.pipe';
 import { PaginationDto } from 'src/common/dto/pagination.dto';
 
@@ -44,8 +44,8 @@ export class PokemonController {
   // Actualiza un pokemon
   @Patch(':termino')
   update(
-    @Param('termino') termino: string,
-    @Body() updatePokemonDto: UpdatePokemonDto,
+    @Param('termino') termino: string, // Obtenemos el parámetro del url
+    @Body() updatePokemonDto: UpdatePokemonDto, // get data from body
   ) {
     return this.pokemonService.update(termino, updatePokemonDto);
   }

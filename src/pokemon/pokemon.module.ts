@@ -10,6 +10,7 @@ import { ConfigModule } from '@nestjs/config';
   providers: [PokemonService],
   imports: [
     ConfigModule,
+    // Determina el esquema que se utilizará en MongoDB
     MongooseModule.forFeature([
       {
         name: Pokemon.name,
@@ -17,8 +18,6 @@ import { ConfigModule } from '@nestjs/config';
       },
     ]),
   ],
-  exports: [
-    MongooseModule
-  ]
+  exports: [MongooseModule],
 })
 export class PokemonModule {}

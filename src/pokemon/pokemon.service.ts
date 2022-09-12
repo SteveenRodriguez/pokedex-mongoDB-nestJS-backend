@@ -34,7 +34,7 @@ export class PokemonService {
     createPokemonDto.name = createPokemonDto.name.toLowerCase();
 
     try {
-      // Crea un modelo de un Pokemon
+      // Crea un modelo de un Pokemon y lo guarda en la BD
       const pokemon = await this.pokemonModel.create(createPokemonDto);
       return pokemon;
     } catch (error) {
